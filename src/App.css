@@ -19,7 +19,7 @@ header {
   height: 10vh;
   display: flex;
   align-items: center;
-  background: gray;
+  background: #F62D14;
   color: white;
 }
 
@@ -33,8 +33,22 @@ header {
   margin: 10px;
 }
 
-header input {
+header label {
   margin: auto;
+  display: flex;
+  align-items: center;
+}
+
+header input {
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 5px 10px;
+}
+
+#search_icon {
+  cursor: pointer;
 }
 
 #pokeball {
@@ -62,9 +76,16 @@ header input {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  background: yellowgreen;
+  justify-content: space-around;
+  background: #FAD61D;
   margin: 50px;
+  border-radius: 10%;
+  cursor: pointer;
+  transition: 1s ease;
+}
+
+.pokemon-card:hover {
+  transform: translateY(-20px);
 }
 
 
