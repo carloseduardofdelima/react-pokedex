@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaSearch } from 'react-icons/fa'
+import { FaSearch, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import './App.css';
 
 import api from './services/api';
@@ -9,12 +9,16 @@ import logo from './img/pokeball.png';
 
 function App() {
   const [pokemons, setPokemons] = useState([]);
+  const [nextPage, setNextPage] = useState('');
+  const [prevPage, setPrevPage] = useState('');
   const [search, setSearch] = useState('');
 
   useEffect(() => {
     api.get('/pokemon?limit=20')
     .then(response => {
       loadInfo(response.data.results);
+      setNextPage(response.data.next);
+      setPrevPage(response.data.previous);
     });
 
   }, []);
@@ -42,6 +46,32 @@ function App() {
 
   };
 
+  async function goPrevPage() {
+    if (prevPage === null) {
+      return;
+    }
+
+    await api.get(prevPage)
+    .then(response => {
+      setPokemons([]);
+      loadInfo(response.data.results);
+      setNextPage(response.data.next);
+      setPrevPage(response.data.previous);
+    });
+
+  };
+
+  async function goNextPage() {
+    await api.get(nextPage)
+    .then(response => {
+      setPokemons([]);
+      loadInfo(response.data.results);
+      setNextPage(response.data.next);
+      setPrevPage(response.data.previous);
+    });
+
+  };
+
 
   return (
     <div className="App">
@@ -62,17 +92,23 @@ function App() {
       </header>
 
       <div className="main">
+
       <h2>Pokemons</h2>
+
+      <nav>
+      <button onClick={goPrevPage}><FaChevronLeft /></button>
+      <button onClick={goNextPage}><FaChevronRight /></button>
+      </nav>
 
         <ul className="pokemon-list">
 
-          {pokemons.map(pokemon => {
+          {pokemons.length === 0 ? <h1>Loading...</h1> : pokemons.map(pokemon => {
             return (
               <li key={pokemon.id} className="pokemon-card">
               <h2>{`#${pokemon.id}`}</h2>
               <img id="pokemon_image" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`} alt="#"/>
               <h2>{pokemon.name}</h2>
-              <h2 className="types">{pokemon.types.map(types => `${types.type.name} `)}</h2>
+              <h3 className="types">{pokemon.types.map(types => `${types.type.name} `)}</h3>
               </li>
             )
           })}
