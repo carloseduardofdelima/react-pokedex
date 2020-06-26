@@ -107,11 +107,11 @@ function App() {
               <li key={pokemon.id} className="pokemon-card">
               <h2>{`#${pokemon.id}`}</h2>
               <img id="pokemon_image" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`} alt="#"/>
-              <h2>{pokemon.name}</h2>
-              <h3 className="types">{pokemon.types.map(types => `${types.type.name} `)}</h3>
+              <h2 className="pokemon-name">{pokemon.name}</h2>
+              <div className="types">{pokemon.types.map(types => <span className={types.type.name}>{types.type.name}</span>)}</div>
               </li>
             )
-          })}
+          })};
         
 
         </ul>
