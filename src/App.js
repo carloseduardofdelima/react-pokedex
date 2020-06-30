@@ -25,12 +25,14 @@ function App() {
 
   async function loadInfo(data) {
 
-    let info_pokemon = await data.map( async pokemon => {
-      let pokeData = await api.get(`pokemon/${pokemon.name}`)
-      .then(response => {
-        setPokemons(pokemons => [...pokemons, response.data]);
-      });
-    });
+    //Promise.all retona o array só após todas as requisiçôes
+    //Traz as requisicoes na ordem
+    let info_pokemon = await Promise.all(data.map( async pokemon => {
+      let pokeData = await api.get(`pokemon/${pokemon.name}`);
+      return pokeData.data;
+    }));
+
+    setPokemons(info_pokemon);
   };
 
   function handleSearch(e) {
@@ -85,8 +87,8 @@ function App() {
         </label>
         
         <ul className="navbar">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Sobre</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/">Sobre</a></li>
         </ul>
         
       </header>
@@ -108,11 +110,10 @@ function App() {
               <h2>{`#${pokemon.id}`}</h2>
               <img id="pokemon_image" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`} alt="#"/>
               <h2 className="pokemon-name">{pokemon.name}</h2>
-              <div className="types">{pokemon.types.map(types => <span className={types.type.name}>{types.type.name}</span>)}</div>
+              <div className="types">{pokemon.types.map(types => <span id={1} className={types.type.name}>{types.type.name}</span>)}</div>
               </li>
             )
-          })};
-        
+          })}
 
         </ul>
       </div>
