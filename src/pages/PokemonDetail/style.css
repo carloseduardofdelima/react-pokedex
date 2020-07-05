@@ -1,0 +1,50 @@
+.detail {
+    width: 100%;
+    height: 100vh;
+}
+
+.detail-header {
+    justify-content: space-around;
+}
+
+.pokemon-detail {
+    width: 90%;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    background: rgb(71, 77, 77);
+    justify-content: space-around;
+    margin: 10px auto;
+    border-radius: 20px;
+}
+
+#back-button {
+    background: #F62D14;
+    width: 60px;
+    height: 40px;
+    border: none;
+    border-radius: 20%;
+    margin: 50px;
+    cursor: pointer;
+    color: white;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#pokemon-image {
+    width: 150px;
+    height: 150px;
+}
+
+.pokemon-detail ul {
+    list-style: none;
+
+}
+
+.pokemon-detail ul li {
+    color: white;
+    margin: 15px;
+    font-size: 25px;
+}
