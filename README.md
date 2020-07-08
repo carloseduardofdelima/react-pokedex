@@ -1,6 +1,6 @@
 ## Pokedex
 
-![front-page](https://raw.github.com/carloseduardofdelima/react-pokedex/master/front-page.png)
+![front-page](https://raw.github.com/carloseduardofdelima/react-pokedex/master/front-page.PNG)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
