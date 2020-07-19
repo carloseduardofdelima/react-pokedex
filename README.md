@@ -1,4 +1,4 @@
-## Pokedex
+## Pokedex :1234:
 
 ![front-page](https://raw.github.com/carloseduardofdelima/react-pokedex/master/front-page.PNG)
 
