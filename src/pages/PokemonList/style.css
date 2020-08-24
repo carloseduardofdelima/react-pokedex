@@ -80,12 +80,12 @@ header input {
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    background: rgb(71, 77, 77);
-    margin: 50px;
-    border-radius: 10%;
+    margin: 20px;
+    border-radius: 5%;
     cursor: pointer;
     transition: 1s ease;
     color: white;
+    background: rgb(65, 61, 61);;
     text-transform: capitalize;
 }
 
@@ -186,7 +186,11 @@ footer a {
 }
 
 @media (max-width: 600px) {
-    .pokemon-card {
-        margin: 5px;
+    .pokemon-list {
+        flex-direction: column;
+    }
+
+    .navbar {
+        display: none;
     }
 }

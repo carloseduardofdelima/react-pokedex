@@ -8,11 +8,12 @@
 }
 
 .pokemon-detail {
-    width: 90%;
+    width: 70%;
     height: 60vh;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    background: rgb(71, 77, 77);
+    background: linear-gradient(110deg, #F62D14 50%, hsl(7, 87%, 58%) 50%);;
     justify-content: space-around;
     margin: 10px auto;
     border-radius: 20px;

@@ -17,7 +17,7 @@ export default function PokemonList () {
     const [search, setSearch] = useState('');
     
     useEffect(() => {
-        api.get('/pokemon?limit=20')
+        api.get('/pokemon?limit=40')
         .then(response => {
             loadInfo(response.data.results);
             setNextPage(response.data.next);
