@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FaArrowLeft } from 'react-icons/fa'
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 import api from '../../services/api';
 
@@ -8,7 +8,7 @@ import './style.css';
 
 export default function PokemonDetail() {
     const [pokemon, setPokemon] = useState({});
-    const history = useHistory();
+    const navigate = useNavigate();
 
     let { id } = useParams();
 
@@ -22,7 +22,7 @@ export default function PokemonDetail() {
   }, []);
 
   function goBack() {
-    history.push('/');
+    navigate.push('/');
   }
 
     
