@@ -7,7 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## See project
 
-You can see this project on [Heroku](https://reactx-pokedex.herokuapp.com/).
+You can see this project on [Vercel](https://react-pokedex-h3uuja7mk-carloseduardofdelima.vercel.app/).
 
 ## Built With
 
